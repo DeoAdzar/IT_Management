@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.it_management">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.EditActivity.EditUser"></activity>
+        <activity android:name=".ui.EditActivity.EditTimeLog" />
+        <activity android:name=".ui.EditActivity.EditTicket" />
+        <activity android:name=".ui.EditActivity.EditStaff" />
+        <activity android:name=".ui.EditActivity.EditProject" />
+        <activity android:name=".ui.EditActivity.EditLicense" />
+        <activity android:name=".ui.EditActivity.EditIssues" />
+        <activity android:name=".ui.EditActivity.EditFile" />
+        <activity android:name=".ui.EditActivity.EditCredential" />
+        <activity android:name=".ui.EditActivity.EditCategory" />
+        <activity android:name=".ui.EditActivity.EditAsset" />
+        <activity android:name=".ui.EditActivity.EditArticle" />
+        <activity android:name=".ui.AddActivity.AddStaff" />
+        <activity android:name=".ui.AddActivity.AddArticle" />
+        <activity android:name=".ui.AddActivity.AddCategory" />
+        <activity android:name=".ui.AddActivity.AddUser" />
+        <activity android:name=".ui.AddActivity.AddTimeLog" />
+        <activity android:name=".ui.AddActivity.AddTicket" />
+        <activity android:name=".ui.AddActivity.AddProject" />
+        <activity android:name=".ui.AddActivity.AddLicense" />
+        <activity android:name=".ui.AddActivity.AddIssues" />
+        <activity android:name=".ui.AddActivity.AddFile" />
+        <activity android:name=".ui.AddActivity.AddCredential" />
+        <activity android:name=".ui.AddActivity.AddAsset" />
+        <activity android:name=".ui.Inventory.Assets.DetailActivityAsset" />
+        <activity android:name=".ui.KnowledgeBase.KnowledgeBaseArticlesActivity" />
+        <activity android:name=".ui.Clients.DetailActivityClients" />
+        <activity android:name=".ui.Clients.EditClientsActivity" />
+        <activity android:name=".ui.Clients.AddClientsActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

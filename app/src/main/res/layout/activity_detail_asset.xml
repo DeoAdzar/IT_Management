@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Inventory.Assets.DetailActivityAsset">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/AppBarLayout"
+            android:background="#03A9F4">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <Button
+                        android:id="@+id/back_detail_assets"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:paddingTop="8dp"
+
+                        android:gravity="center"
+                        android:background="@drawable/back" />
+                    <TextView
+                        android:id="@+id/id_assets_tab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_assets_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Nama Clients"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayoutAssets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="auto"
+                android:layout_weight="0.3"
+                app:tabIndicatorColor="#fff"
+                app:tabGravity="fill"
+                app:tabSelectedTextColor="#3A3939"
+                app:tabIndicatorHeight="3dp"
+                app:tabTextColor="@android:color/background_light" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerAssets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AppBarLayout"
+            android:layout_centerHorizontal="true"
+            android:elevation="3dp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

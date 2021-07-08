@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+            <TableRow>
+
+                <TextView
+                    android:text="Ticket "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_ticket_awaiting_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/normal_prio"
+                    android:text="Ticket"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Subject "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_subject_awaiting_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="subject"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Assigned To "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_assignedto_awaiting_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="adminid"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:text="Submitter "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_submitter_awaiting_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="email"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Status "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_statusname_awaiting_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="left"
+                    android:background="@drawable/bg_status_deployed"
+                    android:paddingHorizontal="15dp"
+                    android:text="Status"
+                    android:textColor="@color/whiteCardColor"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_edit_awaiting_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="10dp"
+                android:background="@color/whiteCardColor"
+                android:src="@drawable/edit" />
+
+            <ImageButton
+                android:id="@+id/btn_delete_awaiting_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="10dp"
+                android:background="@color/whiteCardColor"
+                android:src="@drawable/delete" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

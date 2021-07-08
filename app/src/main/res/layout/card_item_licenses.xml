@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_medal"
+            />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+            <TableRow>
+
+                <TextView
+                    android:text="Tag "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_tag_license"
+                    android:layout_width="wrap_content"
+                    android:text="tag"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Category "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tv_category_license"
+                    android:layout_width="wrap_content"
+                    android:text="category"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Nama "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_name_license"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="nama"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:text="Seats "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_seats_license"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Seats"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:text="Client"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_client_license"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Client"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Status "
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_statusname_license"
+                    android:layout_width="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/whiteCardColor"
+                    android:textStyle="bold"
+                    android:layout_gravity="left"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/bg_status_deployed"
+                    android:textSize="16dp" />
+            </TableRow>
+
+        </TableLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+        <ImageButton
+            android:id="@+id/btn_edit_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:background="@color/whiteCardColor"
+            android:src="@drawable/edit" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:background="@color/whiteCardColor"
+            android:src="@drawable/delete" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

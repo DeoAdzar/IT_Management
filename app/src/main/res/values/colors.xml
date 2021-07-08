@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#00a5ff</color>
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#00a5ff</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="black">#000</color>
+    <color name="green">#006400</color>
+    <color name="whiteCardColor">#fff</color>
+
+    <color name="request">#1ecbbd</color>
+    <color name="pending">#1ccd2b</color>
+    <color name="deployed">#3479da</color>
+    <color name="archived">#959d1c</color>
+    <color name="repair">#da2727</color>
+    <color name="broken">#776e6e</color>
+    <color name="none">#AEB0B5</color>
+</resources>

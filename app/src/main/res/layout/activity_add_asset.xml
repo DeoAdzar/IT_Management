@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddActivity.AddAsset">
+    <ScrollView style="@style/parent">
+
+        <RelativeLayout style="@style/parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:weightSum="12">
+
+                <LinearLayout
+                    style="@style/parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/login_shape_bk"
+                    android:orientation="vertical">
+                    <Button
+                            android:id="@+id/btn_back_AddAssets"
+                        android:layout_width="40dp"
+                        android:layout_margin="12dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/close"/>
+                    <ImageView
+                        style="@style/parent"
+                        android:background="@drawable/ic_login_bk"
+                        android:contentDescription="login background" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/headerText"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="IT Management"
+                    android:textAllCaps="true"
+                    android:textSize="24dp" />
+
+                <androidx.cardview.widget.CardView
+                    style="@style/loginCard"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:layout_marginBottom="@dimen/loginViewsMargin"
+                    android:background="@color/whiteCardColor"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="@dimen/loginCardRadius">
+
+                    <LinearLayout
+                        style="@style/linearParent"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/loginViewsMargin">
+
+                        <TextView
+                            style="@style/headerTextPrimary"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            android:text="Tambah Data Assets" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <!--<EditText
+                                android:id="@+id/et_new_name"
+                                style="@style/modifiedEditText"
+                                android:hint="Clients Name"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_client"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Clients"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_clientid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <EditText
+                                android:id="@+id/et_add_asset_tag"
+                                style="@style/modifiedEditText"
+                                android:hint="Asset Tag *"
+                                android:inputType="textCapCharacters"
+                                android:maxLines="1"
+
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <EditText
+                                android:id="@+id/et_add_asset_name"
+                                style="@style/modifiedEditText"
+                                android:hint="Asset Name *"
+                                android:inputType="textCapCharacters"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_category"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Category *"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_categoryid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_supplier"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Supplier"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_supplierid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_location"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Location"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_locationid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            app:placeholderText="Status *"
+                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <Spinner
+                                android:id="@+id/spin_add_asset_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dialog" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_user"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Asset User"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_userid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_admin"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Asset Admin"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_adminid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_manufacturer"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Manufacturer"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_manufacturerid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_add_assets_model"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Model"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_add_assets_modelid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <EditText
+                                android:id="@+id/et_add_asset_purchase_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Purchase Date"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+
+                            >
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <com.tobiasschuerg.prefixsuffix.PrefixSuffixEditText
+                                android:id="@+id/et_add_asset_warranty"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Warranty"
+                                android:inputType="number"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+
+                            >
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <EditText
+                                android:id="@+id/et_add_asset_serial"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Serial"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+
+                            >
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <EditText
+                                android:id="@+id/et_add_asset_notes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Notes"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/btn_add_asset"
+                            style="@style/loginButton"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            android:text="Create" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

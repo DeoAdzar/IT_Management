@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/assets"
+            />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+            <TableRow>
+
+                <TextView
+                    android:text="Tag "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_tag_asset"
+                    android:layout_width="wrap_content"
+                    android:text="Tag"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Category "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_categoryid_asset"
+                    android:layout_width="wrap_content"
+                    android:text="category"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Nama"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_name_asset"
+                    android:layout_width="wrap_content"
+                    android:text="name"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:text="Serial "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_serial_asset"
+                    android:layout_width="wrap_content"
+                    android:text="serial"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:text="Status "
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:text=": "
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_statusid_asset"
+                    android:layout_width="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/whiteCardColor"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/bg_status_deployed"
+                    android:textSize="16dp" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tv_id_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_adminid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="license_tag_prefix"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_userid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/tv_clientid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_manufacturerid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_modelid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_supplierid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/tv_purchase_date_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/tv_warranty_months_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_locationid_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_notes_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_customfields_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_qrvalue_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btn_edit_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:background="@color/whiteCardColor"
+            android:src="@drawable/edit" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:background="@color/whiteCardColor"
+            android:src="@drawable/delete" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

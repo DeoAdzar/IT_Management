@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/person"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <TableRow>
+                    <TextView
+                        android:text="ID "
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:id="@+id/tv_id_staff"
+                        android:layout_weight="1"
+                        android:text="Tag"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Nama "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_nama_staff"
+                        android:layout_weight="1"
+                        android:text="nama"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Email "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:id="@+id/tv_email_staff"
+                        android:layout_weight="1"
+                        android:text="email"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Title "
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:id="@+id/tv_title_staff"
+                        android:layout_weight="1"
+                        android:text="Tag"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Role "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:id="@+id/tv_role_staff"
+                        android:layout_weight="1"
+                        android:text="role"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="25dp">
+            <ImageButton
+                android:id="@+id/btn_edit_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:background="@color/whiteCardColor"
+                android:padding="5dp"
+                android:src="@drawable/edit"
+                android:layout_marginRight="5dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_delete_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:background="@color/whiteCardColor"
+                android:padding="5dp"
+                android:src="@drawable/delete" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progress_project"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:layout_centerInParent="true"
+                android:progress="70"
+                android:progressDrawable="@drawable/stats_progress" />
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="10"
+                android:textColor="#000" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <TableRow>
+
+                    <TextView
+                        android:text="Tag "
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        />
+
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_tag_projects"
+                        android:layout_weight="1"
+                        android:text="Tag"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="Nama "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_nama_projects"
+                        android:layout_weight="1"
+                        android:text="nama"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="Client "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_client_project"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:text="Client"
+                        android:maxLines="2"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Due Date "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_due_date"
+                        android:layout_weight="1"
+                        android:text="password"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tv_id_projects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asset"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_id_client_projects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asset"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_notes_projects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="license_tag_prefix"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_description_projects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_start_date_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="25dp">
+            <ImageButton
+                android:id="@+id/btn_edit_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:background="@color/whiteCardColor"
+                android:padding="5dp"
+                android:src="@drawable/edit"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_delete_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:background="@color/whiteCardColor"
+                android:padding="5dp"
+                android:src="@drawable/delete" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

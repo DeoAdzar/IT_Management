@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/dashboard2"
+            android:title="@string/menu_dashboard" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/client"
+            android:title="@string/menu_clients" />
+        <item
+            android:id="@+id/nav_project"
+            android:icon="@drawable/project2"
+            android:title="@string/menu_projects" />
+        <item
+            android:id="@+id/nav_knowledge_base"
+            android:icon="@drawable/knowledgebase2"
+            android:title="Knowledge Base" />
+<!--        <item-->
+<!--            android:id="@+id/nav_monitoring"-->
+<!--            android:icon="@drawable/monitoring"-->
+<!--            android:title="Monitoring" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_reports"-->
+<!--            android:icon="@drawable/reports"-->
+<!--            android:title="Reports" />-->
+        <item
+            android:title="Inventory"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_assets"
+                        android:icon="@drawable/assets"
+                        android:title="Assets" />
+                    <item
+                        android:id="@+id/nav_licenses"
+                        android:icon="@drawable/ic_medal"
+                        android:title="Licenses" />
+                    <item
+                        android:id="@+id/nav_credentials"
+                        android:icon="@drawable/credentials"
+                        android:title="Credentials" />
+
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="Attributes"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_assets_categories"
+                        android:icon="@drawable/code"
+                        android:title="Assets Categories" />
+                    />
+                    <item
+                        android:id="@+id/nav_assets_models"
+                        android:icon="@drawable/code"
+                        android:title="Assets Models" />
+                    <item
+                        android:id="@+id/nav_license_categories"
+                        android:icon="@drawable/code"
+                        android:title="License Categories" />
+                    <item
+                        android:id="@+id/nav_status_labels"
+                        android:icon="@drawable/code"
+                        android:title="Status Labels" />
+                    <item
+                        android:id="@+id/nav_manufacturers"
+                        android:icon="@drawable/code"
+                        android:title="Manufacturers" />
+                    <item
+                        android:id="@+id/nav_locations"
+                        android:icon="@drawable/code"
+                        android:title="Locations" />
+                    <item
+                        android:id="@+id/nav_suppliers"
+                        android:icon="@drawable/code"
+                        android:title="Suppliers" />
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="Tickets"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_awaiting_reply"
+                        android:icon="@drawable/code"
+                        android:title="Awaiting Reply" />
+                    <item
+                        android:id="@+id/nav_active_tickets"
+                        android:icon="@drawable/code"
+                        android:title="Active Tickets" />
+                    <item
+                        android:id="@+id/nav_all_tickets"
+                        android:icon="@drawable/code"
+                        android:title="All Tickets" />
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="Issues"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_active_issues"
+                        android:icon="@drawable/code"
+                        android:title="Active Issues" />
+                    <item
+                        android:id="@+id/nav_all_issues"
+                        android:icon="@drawable/code"
+                        android:title="All Issues" />
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="People"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_users"
+                        android:icon="@drawable/code"
+                        android:title="Users" />
+                    <item
+                        android:id="@+id/nav_staff"
+                        android:icon="@drawable/code"
+                        android:title="Staff" />
+                    <item
+                        android:id="@+id/nav_roles"
+                        android:icon="@drawable/code"
+                        android:title="Roles" />
+                    <item
+                        android:id="@+id/nav_contacs"
+                        android:icon="@drawable/code"
+                        android:title="Contacs" />
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>

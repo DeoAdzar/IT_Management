@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.it_management.ui.Dashboard.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.it_management.ui.Clients.ClientsFragment"
+        android:label="@string/menu_clients"
+        tools:layout="@layout/fragment_clients" />
+
+    <fragment
+        android:id="@+id/nav_project"
+        android:name="com.example.it_management.ui.Projects.ProjectsFragment"
+        android:label="@string/menu_projects"
+        tools:layout="@layout/fragment_projects" />
+    <fragment
+        android:id="@+id/nav_knowledge_base"
+        android:name="com.example.it_management.ui.KnowledgeBase.KnowledgeBaseFragment"
+        android:label="Knowledge Base"
+        tools:layout="@layout/fragment_knowledge_base"/>
+
+    <fragment
+        android:id="@+id/nav_assets"
+        android:name="com.example.it_management.ui.Inventory.Assets.AssetsFragment"
+        android:label="Assets"
+        tools:layout="@layout/fragment_assets"/>
+    <fragment
+        android:id="@+id/nav_credentials"
+        android:name="com.example.it_management.ui.Inventory.Credentials.CredentialsFragment"
+        android:label="Credential"
+        tools:layout="@layout/fragment_credentials"/>
+    <fragment
+        android:id="@+id/nav_licenses"
+        android:name="com.example.it_management.ui.Inventory.Licences.LicencesFragment"
+        android:label="Licences"
+        tools:layout="@layout/fragment_licences"/>
+    <fragment
+        android:id="@+id/nav_assets_categories"
+        android:name="com.example.it_management.ui.Inventory.Attributes.AssetsCategories.AssetsCategoryFragment"
+        android:label="Assets Categories"
+        tools:layout="@layout/fragment_assets_category"/>
+    <fragment
+        android:id="@+id/nav_assets_models"
+        android:name="com.example.it_management.ui.Inventory.Attributes.AssetsModels.AssetsModelsFragment"
+        android:label="Assets Models"
+        tools:layout="@layout/fragment_assets_models"/>
+    <fragment
+        android:id="@+id/nav_license_categories"
+        android:name="com.example.it_management.ui.Inventory.Attributes.LicenseCategories.LicenseCategoryFragment"
+        android:label="License Categories"
+        tools:layout="@layout/fragment_license_categories"/>
+    <fragment
+        android:id="@+id/nav_locations"
+        android:name="com.example.it_management.ui.Inventory.Attributes.Locations.LocationsFragment"
+        android:label="Locations"
+        tools:layout="@layout/fragment_locations"/>
+    <fragment
+        android:id="@+id/nav_manufacturers"
+        android:name="com.example.it_management.ui.Inventory.Attributes.Manufacturers.ManufacturersFragment"
+        android:label="Manufacturers"
+        tools:layout="@layout/fragment_manufacturers"/>
+    <fragment
+        android:id="@+id/nav_status_labels"
+        android:name="com.example.it_management.ui.Inventory.Attributes.StatusLabels.StatusLabelsFragment"
+        android:label="Status Label"
+        tools:layout="@layout/fragment_status_label"/>
+    <fragment
+        android:id="@+id/nav_suppliers"
+        android:name="com.example.it_management.ui.Inventory.Attributes.Suppliers.SuppliersFragment"
+        android:label="Suppliers"
+        tools:layout="@layout/fragment_suppliers"/>
+    <fragment
+        android:id="@+id/nav_active_issues"
+        android:name="com.example.it_management.ui.Issues.ActiveIssues.ActiveIssuesFragment"
+        android:label="Active Issues"
+        tools:layout="@layout/fragment_active_issues"/>
+    <fragment
+        android:id="@+id/nav_all_issues"
+        android:name="com.example.it_management.ui.Issues.AllIssues.AllIssuesFragment"
+        android:label="All Issues"
+        tools:layout="@layout/fragment_all_isues"/>
+    <fragment
+        android:id="@+id/nav_monitoring"
+        android:name="com.example.it_management.ui.Monitoring.MonitoringFragment"
+        android:label="Monitoring"
+        tools:layout="@layout/fragment_monitoring"/>
+    <fragment
+        android:id="@+id/nav_contacs"
+        android:name="com.example.it_management.ui.People.Contacs.ContacsFragment"
+        android:label="Contacs"
+        tools:layout="@layout/fragment_contacs"/>
+    <fragment
+        android:id="@+id/nav_roles"
+        android:name="com.example.it_management.ui.People.Roles.RolesFragment"
+        android:label="Roles"
+        tools:layout="@layout/fragment_roles"/>
+    <fragment
+        android:id="@+id/nav_staff"
+        android:name="com.example.it_management.ui.People.Staff.StaffFragment"
+        android:label="Staff"
+        tools:layout="@layout/fragment_staff"/>
+    <fragment
+        android:id="@+id/nav_users"
+        android:name="com.example.it_management.ui.People.Users.UsersFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_users"/>
+    <fragment
+        android:id="@+id/nav_reports"
+        android:name="com.example.it_management.ui.Reports.ReportFragment"
+        android:label="Report"
+        tools:layout="@layout/fragment_report"/>
+    <fragment
+        android:id="@+id/nav_api_keys"
+        android:name="com.example.it_management.ui.System.ApiKeys.ApiKeysFragment"
+        android:label="Api Keys"
+        tools:layout="@layout/fragment_api_keys"/>
+    <fragment
+        android:id="@+id/nav_custom_fields"
+        android:name="com.example.it_management.ui.System.CustomFields.CustomFieldsFragment"
+        android:label="Custom Fields"
+        tools:layout="@layout/fragment_custom_fields"/>
+    <fragment
+        android:id="@+id/nav_import"
+        android:name="com.example.it_management.ui.System.Import.ImportFragment"
+        android:label="Import"
+        tools:layout="@layout/fragment_import"/>
+    <fragment
+        android:id="@+id/nav_logs"
+        android:name="com.example.it_management.ui.System.Logs.LogsFragment"
+        android:label="Logs"
+        tools:layout="@layout/fragment_logs"/>
+    <fragment
+        android:id="@+id/nav_predefined_replies"
+        android:name="com.example.it_management.ui.System.PredefinedReplies.PredefiniedRepliesFragment"
+        android:label="Predifined Replies"
+        tools:layout="@layout/fragment_predefinied_replies"/>
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.it_management.ui.System.Setting.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting"/>
+    <fragment
+        android:id="@+id/nav_active_tickets"
+        android:name="com.example.it_management.ui.Tickets.ActiveTickets.ActiveTicketsFragment"
+        android:label="Active Tickets"
+        tools:layout="@layout/fragment_active_tickets"/>
+    <fragment
+        android:id="@+id/nav_all_tickets"
+        android:name="com.example.it_management.ui.Tickets.AllTickets.AllTicketsFragment"
+        android:label="All Tickets"
+        tools:layout="@layout/fragment_all_tickets"/>
+    <fragment
+        android:id="@+id/nav_awaiting_reply"
+        android:name="com.example.it_management.ui.Tickets.AwaitingReply.AwaitingReplyFragment"
+        android:label="Awaiting Reply"
+        tools:layout="@layout/fragment_awaiting_reply"/>
+
+
+</navigation>

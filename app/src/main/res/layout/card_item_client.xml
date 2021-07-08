@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_gravity="center|top"
+        android:background="@drawable/bg_view"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/suitcase"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="ID :"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/tv_idClient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="ID"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Nama : "
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/tv_namaClient"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+
+                    android:maxLines="2"
+                    android:text="Nama"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_asset_tag_prefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asset"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/tv_license_tag_prefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="license_tag_prefix"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/tv_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_edit_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:background="@color/whiteCardColor"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/edit" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:background="@color/whiteCardColor"
+            android:padding="5dp"
+            android:src="@drawable/delete" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

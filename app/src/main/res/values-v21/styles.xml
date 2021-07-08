@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:buttonBarPositiveButtonStyle">@style/positive</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/negative</item>
+    </style>
+    <style name="negative">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="positive">
+        <item name="android:textColor">@color/green</item>
+    </style>
+    <style name="modifiedEditText" parent="parent">
+        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:backgroundTint">@color/primaryTextColor</item>
+    </style>
+</resources>
