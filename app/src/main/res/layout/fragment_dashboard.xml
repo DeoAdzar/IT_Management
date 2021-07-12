@@ -48,7 +48,7 @@
                                 android:id="@+id/count_Assets"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="100"
+                                android:text="-"
                                 android:fontFamily="@font/alfa_slab_one"
                                 android:textColor="#fff"
                                 android:textSize="30dp" />
@@ -109,7 +109,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/alfa_slab_one"
-                                android:text="100"
+                                android:text="-"
                                 android:textColor="#fff"
                                 android:textSize="30dp" />
 
@@ -176,7 +176,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/alfa_slab_one"
-                                android:text="100"
+                                android:text="-"
                                 android:textColor="#fff"
                                 android:textSize="30dp" />
 
@@ -237,7 +237,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/alfa_slab_one"
-                                android:text="3"
+                                android:text="-"
                                 android:textColor="#fff"
                                 android:textSize="30dp" />
 

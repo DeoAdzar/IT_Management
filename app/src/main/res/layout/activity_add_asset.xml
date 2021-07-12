@@ -125,7 +125,7 @@
                                 android:id="@+id/et_add_asset_name"
                                 style="@style/modifiedEditText"
                                 android:hint="Asset Name *"
-                                android:inputType="textCapCharacters"
+                                android:inputType="textCapWords"
                                 android:maxLines="1"
                                 android:textSize="16dp" />
                         </com.google.android.material.textfield.TextInputLayout>

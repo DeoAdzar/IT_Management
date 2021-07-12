@@ -22,7 +22,7 @@
                     android:background="@drawable/login_shape_bk"
                     android:orientation="vertical">
                     <Button
-                        android:id="@+id/btn_back_Addlicenses"
+                        android:id="@+id/btn_back_Addproject"
                         android:layout_width="40dp"
                         android:layout_margin="12dp"
                         android:layout_height="40dp"
@@ -74,7 +74,6 @@
                             android:text="Tambah Data Project" />
 
 
-
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
@@ -97,7 +96,7 @@
                                 android:id="@+id/et_add_project_name"
                                 style="@style/modifiedEditText"
                                 android:hint="Project Name *"
-                                android:inputType="textCapCharacters"
+                                android:inputType="textCapWords"
                                 android:maxLines="1"
                                 android:textSize="16dp" />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -118,12 +117,14 @@
                                 android:hint="Clients"
                                 android:maxLines="1"
                                 android:textSize="16dp" />
+
                             <TextView
                                 android:id="@+id/et_add_project_clientid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:visibility="gone"/>
+                                android:visibility="gone" />
                         </com.google.android.material.textfield.TextInputLayout>
+
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
@@ -145,6 +146,7 @@
                                 android:hint="Start Date"
                                 android:textSize="16dp" />
                         </com.google.android.material.textfield.TextInputLayout>
+
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
@@ -169,9 +171,9 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
                             app:placeholderText="Progress *"
-                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout"
-                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout">
                             <!--<EditText
                                 android:id="@+id/et_"
                                 style="@style/modifiedEditText"
@@ -184,32 +186,38 @@
                                 android:id="@+id/sk_add_project_progress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                app:isb_indicator_color="@color/colorAccent"
                                 app:isb_max="100"
                                 app:isb_min="1"
+                                app:isb_only_thumb_draggable="true"
                                 app:isb_progress="25"
                                 app:isb_seek_smoothly="true"
-                                app:isb_show_tick_marks_type="oval"
-                                app:isb_tick_marks_size="13dp"
-                                app:isb_show_tick_texts="true"
-                                app:isb_tick_texts_size="15sp"
-                                app:isb_thumb_size="23dp"
-                                app:isb_thumb_color="@color/colorAccent"
-                                app:isb_track_progress_color="@color/colorAccent"
-                                app:isb_thumb_text_color="@color/whiteTextColor"
                                 app:isb_show_indicator="circular_bubble"
-                                app:isb_indicator_color="@color/colorAccent"
-                                app:isb_only_thumb_draggable="true"/>
+                                app:isb_show_tick_marks_type="oval"
+                                app:isb_show_tick_texts="true"
+                                app:isb_thumb_color="@color/colorAccent"
+                                app:isb_thumb_size="23dp"
+                                app:isb_thumb_text_color="@color/whiteTextColor"
+                                app:isb_tick_marks_size="13dp"
+                                app:isb_tick_texts_size="15sp"
+                                app:isb_track_progress_color="@color/colorAccent" />
 
+                            <TextView
+                                android:id="@+id/add_project_progress_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
+
                             <EditText
-                                android:id="@+id/et_add_license_notes"
+                                android:id="@+id/et_add_project_notes"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Notes"
+                                android:hint="Description"
                                 android:textSize="16dp" />
                         </com.google.android.material.textfield.TextInputLayout>
 

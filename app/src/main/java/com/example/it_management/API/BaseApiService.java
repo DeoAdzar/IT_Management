@@ -161,6 +161,17 @@ public interface BaseApiService {
     Call<ProjectsResponseModel> basGetProjects();
     @GET("Projects/countProject")
     Call<ResponseBody> basCountProject();
+    @FormUrlEncoded
+    @POST("Projects/insertProjects")
+    Call<ResponseBody> basInputProject(
+            @Field("idClient") int idClient,
+            @Field("tag") String tag,
+            @Field("name") String name,
+            @Field("notes") String notes,
+            @Field("progress") int progress,
+            @Field("start") String start,
+            @Field("end") String end
+    );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END Projects ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ KnowledgeBase ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     @GET("KnowledgeBase/getKbCategories")
