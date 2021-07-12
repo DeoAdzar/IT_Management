@@ -1,7 +1,9 @@
 package com.example.it_management.ui.Inventory.Licences;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.example.it_management.API.BaseApiService;
 import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.AddActivity.AddLicense;
 import com.example.it_management.ui.Clients.ClientsAdapterData;
 import com.example.it_management.ui.Clients.FragmentDetail.ClientAssets.ClientsAssetAdapterData;
 import com.example.it_management.ui.Clients.FragmentDetail.ClientLicense.ClientsLicenseAdaptorData;
@@ -52,9 +55,40 @@ public class LicencesFragment extends Fragment {
         totalLicense = v.findViewById(R.id.totalLicense);
         nodata = v.findViewById(R.id.no_data_licenses);
         nodata.setVisibility(View.GONE);
+        addLicense();
+        hilang();
         tampilDataLicense();
         refresh();
         return v;
+    }
+    private void addLicense() {
+        fablicense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AddLicense.class);
+                startActivity(i);
+                onStop();
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        tampilDataLicense();
+    }
+    private void hilang(){
+        rvlicense.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fablicense.getVisibility() == View.VISIBLE) {
+                    fablicense.hide();
+                } else if (dy < 0 && fablicense.getVisibility() != View.VISIBLE) {
+                    fablicense.show();
+                }
+            }
+        });
     }
     private void refresh(){
         srlicense.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

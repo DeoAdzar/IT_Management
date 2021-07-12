@@ -1,5 +1,6 @@
 package com.example.it_management.ui.Projects;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.it_management.API.BaseApiService;
 import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.AddActivity.AddLicense;
+import com.example.it_management.ui.AddActivity.AddProject;
 import com.example.it_management.ui.Inventory.Licences.LicensesAdapterData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -50,10 +53,35 @@ public class ProjectsFragment extends Fragment {
         nodata = v.findViewById(R.id.no_data_project);
         nodata.setVisibility(View.GONE);
         TampilDataProjects();
+        addLicense();
+        hilang();
         refresh();
         return v;
     }
+    private void addLicense() {
+        addProjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AddProject.class);
+                startActivity(i);
+                onStop();
+            }
+        });
+    }
 
+    private void hilang(){
+        rvProjects.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && addProjects.getVisibility() == View.VISIBLE) {
+                    addProjects.hide();
+                } else if (dy < 0 && addProjects.getVisibility() != View.VISIBLE) {
+                    addProjects.show();
+                }
+            }
+        });
+    }
     @Override
     public void onResume() {
         super.onResume();

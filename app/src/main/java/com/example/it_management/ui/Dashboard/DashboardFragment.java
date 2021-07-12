@@ -1,6 +1,7 @@
 package com.example.it_management.ui.Dashboard;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +28,8 @@ import com.example.it_management.ui.Clients.ClientsModel;
 import com.example.it_management.ui.Inventory.Assets.AssetsFragment;
 import com.example.it_management.ui.Inventory.Licences.LicencesFragment;
 import com.example.it_management.ui.Projects.ProjectsFragment;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieEntry;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +46,7 @@ import retrofit2.Response;
 public class DashboardFragment extends Fragment {
     private CardView cvCountClient,cvCountAssets,cvCountLicense,cvCountProject;
     private TextView tvCountClient,tvCountAssets,tvCountLicense,tvCountProject;
-
+    PieChart chart;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -51,6 +54,8 @@ public class DashboardFragment extends Fragment {
         cvCountAssets = root.findViewById(R.id.cv_assets);
         cvCountLicense = root.findViewById(R.id.cv_licences);
         cvCountProject = root.findViewById(R.id.cv_project);
+        chart = root.findViewById(R.id.pieChart);
+
         getCountClient();
         getCountAssets();
         getCountLicense();
@@ -87,8 +92,19 @@ public class DashboardFragment extends Fragment {
         tvCountAssets = root.findViewById(R.id.count_Assets);
         tvCountLicense = root.findViewById(R.id.count_licenses);
         tvCountProject = root.findViewById(R.id.count_project);
-
+        setChart();
         return root;
+    }
+
+    private void setChart() {
+        chart.setUsePercentValues(true);
+        chart.getDescription().setEnabled(true);
+        chart.setExtraOffsets(5,10,5,5);
+        chart.setDragDecelerationFrictionCoef(0.95f);
+        chart.setDrawHoleEnabled(true);
+        chart.setHoleColor(Color.WHITE);
+        chart.setTransparentCircleRadius(61f);
+        ArrayList<PieEntry> entry = new ArrayList<>();
     }
 
     private void getCountProject() {
@@ -106,7 +122,6 @@ public class DashboardFragment extends Fragment {
                         } else {
                             String error_msg = jsonResult.getString("error_msg");
                             Toast.makeText(getContext(), error_msg, Toast.LENGTH_SHORT).show();
-
                         }
                     } catch (JSONException e) {
 

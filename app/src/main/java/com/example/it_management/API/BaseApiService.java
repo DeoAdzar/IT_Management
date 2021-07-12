@@ -230,6 +230,24 @@ public interface BaseApiService {
     Call<LicensesResponseModel> basGetLicense();
     @GET("Licenses/countLicense")
     Call<ResponseBody> basCountLicense();
+    @FormUrlEncoded
+    @POST("Licenses/getCategoryId")
+    Call<ResponseBody> basLicenseCategoryGetId(
+            @Field("name") String name
+    );
+    @FormUrlEncoded
+    @POST("Licenses/insertLicense")
+    Call<ResponseBody> basInputLicense(
+            @Field("idCategory") int idCategory,
+            @Field("idClient") int idClient,
+            @Field("idSupp") int idSupp,
+            @Field("idStatus") int idStatus,
+            @Field("tag") String tag,
+            @Field("name") String name,
+            @Field("seat") String seat,
+            @Field("serial") String serial,
+            @Field("notes") String notes
+    );
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End License ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Credential ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
