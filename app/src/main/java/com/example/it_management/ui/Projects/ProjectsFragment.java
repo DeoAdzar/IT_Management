@@ -53,12 +53,12 @@ public class ProjectsFragment extends Fragment {
         nodata = v.findViewById(R.id.no_data_project);
         nodata.setVisibility(View.GONE);
         TampilDataProjects();
-        addLicense();
+        addProject();
         hilang();
         refresh();
         return v;
     }
-    private void addLicense() {
+    private void addProject() {
         addProjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

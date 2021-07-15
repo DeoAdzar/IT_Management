@@ -1,5 +1,6 @@
 package com.example.it_management.ui.Issues.ActiveIssues;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 import com.example.it_management.API.BaseApiService;
 import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.AddActivity.AddIssues;
+import com.example.it_management.ui.Clients.AddClientsActivity;
 import com.example.it_management.ui.Tickets.ActiveTickets.ActiveTicketsAdapterData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -52,8 +55,19 @@ public class ActiveIssuesFragment extends Fragment {
         nodata = v.findViewById(R.id.no_data_active_issues);
         nodata.setVisibility(View.GONE);
         tampilDataActiveIssues();
+        addIssues();
         refresh();
         return v;
+    }
+    private void addIssues(){
+        fabActiveIssues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AddIssues.class);
+                startActivity(i);
+                onStop();
+            }
+        });
     }
     private void refresh(){
         srActiveIssues.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
