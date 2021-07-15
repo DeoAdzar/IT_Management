@@ -132,7 +132,7 @@
                                 android:maxLines="1"
                                 android:textSize="16dp" />
                             <TextView
-                                android:id="@+id/et_add_assets_clientid"
+                                android:id="@+id/et_add_issues_clientid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:visibility="gone"/>
@@ -298,7 +298,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <Button
-                            android:id="@+id/btn_add_asset"
+                            android:id="@+id/btn_add_issues"
                             style="@style/loginButton"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/loginViewsMargin"

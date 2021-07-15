@@ -162,6 +162,11 @@ public interface BaseApiService {
     @GET("Projects/countProject")
     Call<ResponseBody> basCountProject();
     @FormUrlEncoded
+    @POST("Projects/getProjectsId")
+    Call<ResponseBody> basProjectsGetId(
+            @Field("name") String name
+    );
+    @FormUrlEncoded
     @POST("Projects/insertProjects")
     Call<ResponseBody> basInputProject(
             @Field("idClient") int idClient,
@@ -204,7 +209,11 @@ public interface BaseApiService {
             @Field("notes") String notes,
             @Field("location") int location
     );
-
+    @FormUrlEncoded
+    @POST("Assets/getAssetsId")
+    Call<ResponseBody> basAssetsGetId(
+            @Field("name") String name
+    );
     @GET("Assets/countAssets")
     Call<ResponseBody> basCountAssets();
     //==========detail file asset=================//
