@@ -33,6 +33,10 @@ import com.example.it_management.ui.Projects.ProjectsModel;
 import com.example.it_management.ui.Projects.ProjectsResponseModel;
 import com.google.gson.TypeAdapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -66,7 +70,219 @@ public class AddIssues extends AppCompatActivity {
         setContentView(R.layout.activity_add_issues);
         init();
         getData();
+        onAction();
     }
+
+    private void onAction() {
+        client.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                client.showDropDown();
+            }
+        });
+        client.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                client.showDropDown();
+            }
+        });
+        client.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BaseApiService mApiService = UtilsApi.getApiService();
+                Call<ResponseBody> getId = mApiService.basClientGetId(client.getText().toString());
+                getId.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                JSONObject jsonResult = new JSONObject(response.body().string());
+                                if (jsonResult.getString("error").equals("false")) {
+                                    String Id = jsonResult.getJSONObject("client").getString("id");
+                                    idClient.setText(Id);
+                                } else {
+                                    String error_msg = jsonResult.getString("error_msg");
+                                    Toast.makeText(AddIssues.this, error_msg, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(AddIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(AddIssues.this, "Gagal mengambil data "+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        admin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                admin.showDropDown();
+            }
+        });
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                admin.showDropDown();
+            }
+        });
+        admin.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BaseApiService mApiService = UtilsApi.getApiService();
+                Call<ResponseBody> getId = mApiService.basAkunGetId(admin.getText().toString());
+                getId.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                JSONObject jsonResult = new JSONObject(response.body().string());
+                                if (jsonResult.getString("error").equals("false")) {
+                                    String Id = jsonResult.getJSONObject("client").getString("id");
+                                    idAdmin.setText(Id);
+                                } else {
+                                    String error_msg = jsonResult.getString("error_msg");
+                                    Toast.makeText(AddIssues.this, error_msg, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(AddIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(AddIssues.this, "Gagal mengambil data "+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        asset.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                asset.showDropDown();
+            }
+        });
+        asset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                asset.showDropDown();
+            }
+        });
+        asset.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BaseApiService mApiService = UtilsApi.getApiService();
+                Call<ResponseBody> getId = mApiService.basAssetsGetId(asset.getText().toString());
+                getId.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                JSONObject jsonResult = new JSONObject(response.body().string());
+                                if (jsonResult.getString("error").equals("false")) {
+                                    String Id = jsonResult.getJSONObject("client").getString("id");
+                                    idAsset.setText(Id);
+                                } else {
+                                    String error_msg = jsonResult.getString("error_msg");
+                                    Toast.makeText(AddIssues.this, error_msg, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(AddIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(AddIssues.this, "Gagal mengambil data "+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        project.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                project.showDropDown();
+            }
+        });
+        project.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                project.showDropDown();
+            }
+        });
+        project.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BaseApiService mApiService = UtilsApi.getApiService();
+                Call<ResponseBody> getId = mApiService.basProjectsGetId(project.getText().toString());
+                getId.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                JSONObject jsonResult = new JSONObject(response.body().string());
+                                if (jsonResult.getString("error").equals("false")) {
+                                    String Id = jsonResult.getJSONObject("client").getString("id");
+                                    idProject.setText(Id);
+                                } else {
+                                    String error_msg = jsonResult.getString("error_msg");
+                                    Toast.makeText(AddIssues.this, error_msg, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(AddIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(AddIssues.this, "Gagal mengambil data "+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        btn_add_issues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertIssues();
+            }
+        });
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void insertIssues() {
+    }
+
     private void init() {
         initType();
         name = findViewById(R.id.et_add_asset_name);
