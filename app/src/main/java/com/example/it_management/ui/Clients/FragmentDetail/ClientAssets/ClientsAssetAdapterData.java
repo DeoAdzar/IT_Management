@@ -62,6 +62,8 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ctx, EditAsset.class);
+                    i.putExtra("id",tvid.getText().toString());
+
                     ctx.startActivity(i);
                 }
             });

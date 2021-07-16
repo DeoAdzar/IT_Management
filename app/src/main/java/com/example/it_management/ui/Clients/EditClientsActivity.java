@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.SpannedString;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +37,7 @@ public class EditClientsActivity extends AppCompatActivity {
         etname.setText(getIntent().getStringExtra("name"));
         etasset_tag.setText(getIntent().getStringExtra("asset_tag"));
         etlicense_tag.setText(getIntent().getStringExtra("license_tag"));
-        etnotes.setText(getIntent().getStringExtra("notes"));
+        etnotes.setText(Html.fromHtml(getIntent().getStringExtra("notes")));
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +51,7 @@ public class EditClientsActivity extends AppCompatActivity {
                 nName = etname.getText().toString();
                 nAsset_tag = etasset_tag.getText().toString();
                 nLicense_tag = etlicense_tag.getText().toString();
-                nNotes = etnotes.getText().toString();
+                nNotes = Html.toHtml(etnotes.getText());
                 RequestUpdate();
             }
         });
