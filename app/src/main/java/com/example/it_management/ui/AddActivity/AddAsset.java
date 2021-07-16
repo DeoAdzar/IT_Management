@@ -116,6 +116,7 @@ public class AddAsset extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         status.setAdapter(adapter);
         progressDialog = new SpotsDialog(this, R.style.Custom);
+
     }
     private void getData() {
         getClient();

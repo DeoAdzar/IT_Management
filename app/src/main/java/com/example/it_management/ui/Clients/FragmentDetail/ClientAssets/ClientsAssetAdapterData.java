@@ -63,7 +63,21 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
                 public void onClick(View v) {
                     Intent i = new Intent(ctx, EditAsset.class);
                     i.putExtra("id",tvid.getText().toString());
-
+                    i.putExtra("idCategory",tvcategoryid.getText().toString());
+                    i.putExtra("idAdmin",tvadminid.getText().toString());
+                    i.putExtra("idClient",tvclientid.getText().toString());
+                    i.putExtra("idUser",tvuserid.getText().toString());
+                    i.putExtra("idManu",tvmanufacturerid.getText().toString());
+                    i.putExtra("idModel",tvmodelid.getText().toString());
+                    i.putExtra("idSupp",tvsupplierid.getText().toString());
+                    i.putExtra("Warran",tvwarrantymonths.getText().toString());
+                    i.putExtra("idLoc",tvlocationid.getText().toString());
+                    i.putExtra("purchase",tvpurchasedate.getText().toString());
+                    i.putExtra("tag",tvtag.getText().toString());
+                    i.putExtra("name",tvname.getText().toString());
+                    i.putExtra("serial",tvserial.getText().toString());
+                    i.putExtra("notes",tvnotes.getText().toString());
+                    i.putExtra("idStatus",tvstatusid.getText().toString());
                     ctx.startActivity(i);
                 }
             });
