@@ -1,7 +1,9 @@
 package com.example.it_management.ui.Issues.AllIssues;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.example.it_management.API.BaseApiService;
 import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.AddActivity.AddIssues;
 import com.example.it_management.ui.Issues.ActiveIssues.ActiveIssuesAdapterData;
 import com.example.it_management.ui.Issues.AllIssues.AllIssuesModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -53,9 +56,40 @@ public class AllIssuesFragment extends Fragment {
         nodata = v.findViewById(R.id.no_data_all_issues);
         nodata.setVisibility(View.GONE);
         tampilDataAllIssues();
+        hilang();
+        addIssues();
         refresh();
         return v;
 
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        tampilDataAllIssues();
+    }
+
+    private void hilang(){
+        rvAllIssues.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fabAllIssues.getVisibility() == View.VISIBLE) {
+                    fabAllIssues.hide();
+                } else if (dy < 0 && fabAllIssues.getVisibility() != View.VISIBLE) {
+                    fabAllIssues.show();
+                }
+            }
+        });
+    }
+    private void addIssues(){
+        fabAllIssues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AddIssues.class);
+                startActivity(i);
+                onStop();
+            }
+        });
     }
     private void refresh(){
         srAllIssues.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

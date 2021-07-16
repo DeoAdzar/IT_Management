@@ -1,10 +1,13 @@
 package com.example.it_management.ui.Clients.FragmentDetail.ClientIssues;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +18,9 @@ import android.widget.Toast;
 import com.example.it_management.API.BaseApiService;
 import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.AddActivity.AddIssues;
 import com.example.it_management.ui.Clients.FragmentDetail.ClientFiles.ClientsFilesAdapterData;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +37,7 @@ public class ClientsIssuesFragment extends Fragment {
     private TextView noData;
     private List<ClientsIssuesModel> clientsIssuesModelList = new ArrayList<>();
     private int id;
-
+    FloatingActionButton fabClientIssues;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,11 +46,43 @@ public class ClientsIssuesFragment extends Fragment {
         rvIssues = v.findViewById(R.id.rv_client_issues);
         lmIssues = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         rvIssues.setLayoutManager(lmIssues);
+        fabClientIssues = v.findViewById(R.id.fab_add_issues_client);
         id = Integer.parseInt(getArguments().getString("idClient"));
         noData = v.findViewById(R.id.no_data_issues);
         noData.setVisibility(View.GONE);
         TampilDataIssues();
+        addIssues();
+        hilang();
         return v;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        TampilDataIssues();
+    }
+
+    private void hilang(){
+        rvIssues.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fabClientIssues.getVisibility() == View.VISIBLE) {
+                    fabClientIssues.hide();
+                } else if (dy < 0 && fabClientIssues.getVisibility() != View.VISIBLE) {
+                    fabClientIssues.show();
+                }
+            }
+        });
+    }
+    private void addIssues(){
+        fabClientIssues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), AddIssues.class);
+                startActivity(i);
+                onStop();
+            }
+        });
     }
 
     private void TampilDataIssues() {

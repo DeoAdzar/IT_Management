@@ -43,6 +43,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import dmax.dialog.SpotsDialog;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -281,10 +282,38 @@ public class AddIssues extends AppCompatActivity {
     }
 
     private void insertIssues() {
+        progressDialog.show();
+        int idCl,idAs,idPro,idAdm;
+        String nama,des,tipe,prio,stts,date;
+        idCl = Integer.parseInt(idClient.getText().toString());
+        idAs = Integer.parseInt(idAsset.getText().toString());
+        idPro = Integer.parseInt(idProject.getText().toString());
+        idAdm = Integer.parseInt(idAdmin.getText().toString());
+        nama = name.getText().toString();
+        des = description.getText().toString();
+        tipe = typename.getText().toString();
+        prio = priority.getSelectedItem().toString();
+        stts = status.getSelectedItem().toString();
+        date = dueDate.getText().toString();
+        Call<ResponseBody> input = mApiService.basInputIssues(idCl,idAdm,idAs,idPro,tipe,prio,stts,date,des,nama);
+        input.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                progressDialog.dismiss();
+                Toast.makeText(AddIssues.this, "Berhasil Input", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
     }
 
     private void init() {
         initType();
+        progressDialog = new SpotsDialog(this, R.style.Custom);
         name = findViewById(R.id.et_add_asset_name);
         type = findViewById(R.id.spin_add_issues_type);
         typename = findViewById(R.id.et_add_assets_typename);

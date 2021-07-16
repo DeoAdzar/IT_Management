@@ -327,7 +327,20 @@ public interface BaseApiService {
     Call<AllTicketsResponseModel> basGetAllTickets();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End Tickets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Issues ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
+    @FormUrlEncoded
+    @POST("Issues/insertIssues")
+    Call<ResponseBody> basInputIssues(
+            @Field("idClient") int idClient,
+            @Field("idAdmin") int idAdmin,
+            @Field("idAsset") int idAsset,
+            @Field("idProject") int idProject,
+            @Field("type") String type,
+            @Field("priority") String priority,
+            @Field("status") String status,
+            @Field("due") String due,
+            @Field("descript") String descript,
+            @Field("name") String name
+    );
     @GET("Issues/getActiveIssues")
     Call<ActiveIssuesResponseModel> basGetActiveIssues();
     @GET("Issues/getAllIssues")

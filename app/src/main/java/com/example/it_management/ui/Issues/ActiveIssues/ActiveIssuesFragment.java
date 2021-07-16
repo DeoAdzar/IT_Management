@@ -3,6 +3,7 @@ package com.example.it_management.ui.Issues.ActiveIssues;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -56,8 +57,28 @@ public class ActiveIssuesFragment extends Fragment {
         nodata.setVisibility(View.GONE);
         tampilDataActiveIssues();
         addIssues();
+        hilang();
         refresh();
         return v;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        tampilDataActiveIssues();
+    }
+
+    private void hilang(){
+        rvActiveIssues.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fabActiveIssues.getVisibility() == View.VISIBLE) {
+                    fabActiveIssues.hide();
+                } else if (dy < 0 && fabActiveIssues.getVisibility() != View.VISIBLE) {
+                    fabActiveIssues.show();
+                }
+            }
+        });
     }
     private void addIssues(){
         fabActiveIssues.setOnClickListener(new View.OnClickListener() {
