@@ -87,24 +87,45 @@ public class EditAsset extends AppCompatActivity {
 
     private void setData() {
         setClientName();
+
         setCategoryName();
+
         setSupplierName();
+
         setLocationName();
+
         setUserName();
+
         setAdminName();
+
         setModelName();
+
         setManufacturerName();
 
+        idAdmin.setText(getIntent().getStringExtra("idAdmin"));
+        idCategory.setText(getIntent().getStringExtra("idCategory"));
+        idClient.setText(getIntent().getStringExtra("idClient"));
+        idLocation.setText(getIntent().getStringExtra("idLoc"));
+        idManufacturer.setText(getIntent().getStringExtra("idManu"));
+        idmodel.setText(getIntent().getStringExtra("idModel"));
+        idSupplier.setText(getIntent().getStringExtra("idSupp"));
+        idUser.setText(getIntent().getStringExtra("idUser"));
+
+        int idStts = Integer.parseInt(getIntent().getStringExtra("idStatus"));
         tag.setText(getIntent().getStringExtra("tag"));
         name.setText(getIntent().getStringExtra("name"));
         purchase_date.setText(getIntent().getStringExtra("purchase"));
         serial.setText(getIntent().getStringExtra("serial"));
         notes.setText(getIntent().getStringExtra("notes"));
         warranty.setText(getIntent().getStringExtra("Warran"));
-        status.setSelection(Integer.parseInt(getIntent().getStringExtra("idStatus")));
+        status.post(new Runnable() {
+            @Override
+            public void run() {
+                status.setSelection(idStts);
+            }
+        });
+
     }
-
-
 
     private void setClientName() {
         String idCl;
@@ -371,11 +392,6 @@ public class EditAsset extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
 
     private void onAction() {
         client.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -820,7 +836,41 @@ public class EditAsset extends AppCompatActivity {
     }
 
     private void updateAsset() {
+        progressDialog.show();
+        Integer idAssets,idCl,idCa,idSup,idLoc,idUs,idAdm,idMan,idmod,warrant,st;
+        String purchase,tg,assetName,srl,note;
+        long stts= status.getSelectedItemId();
+        idAssets = Integer.valueOf(getIntent().getStringExtra("idAsset"));
+        idCl = Integer.parseInt(idClient.getText().toString());
+        idCa = Integer.parseInt(idCategory.getText().toString());
+        idSup = Integer.parseInt(idSupplier.getText().toString());
+        idLoc = Integer.parseInt(idLocation.getText().toString());
+        idUs = Integer.parseInt(idUser.getText().toString());
+        idAdm = Integer.parseInt(idAdmin.getText().toString());
+        idMan = Integer.parseInt(idManufacturer.getText().toString());
+        idmod = Integer.parseInt(idmodel.getText().toString());
+        purchase = purchase_date.getText().toString();
+        warrant = Integer.parseInt(warranty.getText().toString());
+        st = (int) stts;
+        tg = tag.getText().toString();
+        assetName = name.getText().toString();
+        srl = serial.getText().toString();
+        note = notes.getText().toString();
+        BaseApiService mApiService = UtilsApi.getApiService();
+        Call<ResponseBody> input = mApiService.basUpdateAssets(idAssets,idCa,idAdm,idCl,idUs,idMan,idmod,idSup,st,purchase,warrant,tg,assetName,srl,note,idLoc);
+        input.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                progressDialog.dismiss();
+                Toast.makeText(EditAsset.this, "Berhasil Input Data", Toast.LENGTH_SHORT).show();
+                finish();
+            }
 
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(EditAsset.this, "Gagal Response ke database : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void getData() {

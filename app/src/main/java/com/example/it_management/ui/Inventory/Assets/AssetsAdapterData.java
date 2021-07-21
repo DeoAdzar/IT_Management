@@ -76,7 +76,7 @@ public class AssetsAdapterData extends RecyclerView.Adapter<AssetsAdapterData.Ho
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ctx, EditAsset.class);
-                    i.putExtra("id",tvid.getText().toString());
+                    i.putExtra("idAsset",tvid.getText().toString());
                     i.putExtra("idCategory",tvidcategory.getText().toString());
                     i.putExtra("idAdmin",tvadminid.getText().toString());
                     i.putExtra("idClient",tvclientid.getText().toString());
