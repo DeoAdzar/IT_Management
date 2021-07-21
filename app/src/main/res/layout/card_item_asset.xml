@@ -138,14 +138,24 @@
                     android:textSize="16dp" />
             </TableRow>
         </TableLayout>
-
+        <TextView
+            android:id="@+id/tv_id_status_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
         <TextView
             android:id="@+id/tv_id_asset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="id"
             android:visibility="gone" />
-
+        <TextView
+            android:id="@+id/tv_id_category_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
         <TextView
             android:id="@+id/tv_adminid_asset"
             android:layout_width="wrap_content"

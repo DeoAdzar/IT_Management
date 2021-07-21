@@ -191,8 +191,28 @@ public interface BaseApiService {
     @GET("Assets/getAssets")
     Call<AssetsResponseModel> basGetAssets();
     @FormUrlEncoded
-    @POST("Assets/insertClients")
+    @POST("Assets/insertAssets")
     Call<ResponseBody> basInputAssets(
+            @Field("idCategory") int idCategory,
+            @Field("idAdmin") int idAdmin,
+            @Field("idClient") int idClient,
+            @Field("idUser") int idUser,
+            @Field("idManu") int idManu,
+            @Field("idModel") int idModel,
+            @Field("idSupp") int idSupp,
+            @Field("idStatus") int idStatus,
+            @Field("purchase") String purchase,
+            @Field("warranty") int warranty,
+            @Field("tag") String tag,
+            @Field("name") String name,
+            @Field("serial") String serial,
+            @Field("notes") String notes,
+            @Field("location") int location
+    );
+    @FormUrlEncoded
+    @PUT("Assets/updateAssets")
+    Call<ResponseBody> basUpdateAssets(
+            @Field("id") int idAsset,
             @Field("idCategory") int idCategory,
             @Field("idAdmin") int idAdmin,
             @Field("idClient") int idClient,
@@ -371,4 +391,41 @@ public interface BaseApiService {
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End Roles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GetNameById ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    @FormUrlEncoded
+    @POST("Clients/getClientsNameByid")
+    Call<ResponseBody> basClientGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Attributes/getCategoryName")
+    Call<ResponseBody> basCategoryGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Attributes/getModelName")
+    Call<ResponseBody> basModelGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Attributes/getLocationName")
+    Call<ResponseBody> basLocationGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Attributes/getManufacturerName")
+    Call<ResponseBody> basManufacturerGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Attributes/getSupplierName")
+    Call<ResponseBody> basSupplierGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
+    @POST("Akun/getAkunName")
+    Call<ResponseBody> basAkunGetName(
+            @Field("id") int id
+    );
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End GetNameById ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 }

@@ -58,7 +58,7 @@ public class AssetsAdapterData extends RecyclerView.Adapter<AssetsAdapterData.Ho
     public class HolderDataAssets extends RecyclerView.ViewHolder{
         TextView tvid, tvcategoryid, tvadminid, tvclientid, tvuserid, tvmanufacturerid,
                 tvmodelid, tvsupplierid, tvwarrantymonths, tvlocationid, tvpurchasedate,
-                tvtag, tvname, tvserial, tvnotes, tvcustomfields, tvqrvalue,tvstatusid;
+                tvtag, tvname, tvserial, tvnotes, tvcustomfields, tvqrvalue,tvstatusid,tvidstatus,tvidcategory;
         ImageButton edit_btn,delete_btn;
         public HolderDataAssets(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +76,22 @@ public class AssetsAdapterData extends RecyclerView.Adapter<AssetsAdapterData.Ho
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ctx, EditAsset.class);
+                    i.putExtra("id",tvid.getText().toString());
+                    i.putExtra("idCategory",tvidcategory.getText().toString());
+                    i.putExtra("idAdmin",tvadminid.getText().toString());
+                    i.putExtra("idClient",tvclientid.getText().toString());
+                    i.putExtra("idUser",tvuserid.getText().toString());
+                    i.putExtra("idManu",tvmanufacturerid.getText().toString());
+                    i.putExtra("idModel",tvmodelid.getText().toString());
+                    i.putExtra("idSupp",tvsupplierid.getText().toString());
+                    i.putExtra("Warran",tvwarrantymonths.getText().toString());
+                    i.putExtra("idLoc",tvlocationid.getText().toString());
+                    i.putExtra("purchase",tvpurchasedate.getText().toString());
+                    i.putExtra("tag",tvtag.getText().toString());
+                    i.putExtra("name",tvname.getText().toString());
+                    i.putExtra("serial",tvserial.getText().toString());
+                    i.putExtra("notes",tvnotes.getText().toString());
+                    i.putExtra("idStatus",tvidstatus.getText().toString());
                     ctx.startActivity(i);
                 }
             });
@@ -100,12 +116,13 @@ public class AssetsAdapterData extends RecyclerView.Adapter<AssetsAdapterData.Ho
             tvcustomfields =itemView.findViewById(R.id.tv_customfields_asset);
             tvqrvalue=itemView.findViewById(R.id.tv_qrvalue_asset);
             tvstatusid=itemView.findViewById(R.id.tv_statusid_asset);
-
+            tvidstatus = itemView.findViewById(R.id.tv_id_status_asset);
+            tvidcategory = itemView.findViewById(R.id.tv_id_category_asset);
         }
     }
     private void initHolder(@NotNull AssetsAdapterData.HolderDataAssets holder, int position){
         AssetsModel am = assetsModelList.get(position);
-
+        holder.tvidcategory.setText(String.valueOf(am.getCategoryid()));
         holder.tvid.setText(String.valueOf(am.getId()));
         holder.tvadminid.setText(String.valueOf(am.getAdminid()));
         holder.tvcategoryid.setText(am.getCategorynama());
@@ -116,6 +133,7 @@ public class AssetsAdapterData extends RecyclerView.Adapter<AssetsAdapterData.Ho
         holder.tvsupplierid.setText(String.valueOf(am.getSupplierid()));
         holder.tvwarrantymonths.setText(String.valueOf(am.getWarranty_months()));
         holder.tvlocationid.setText(String.valueOf(am.getLocationid()));
+        holder.tvidstatus.setText(String.valueOf(am.getStatusid()));
         switch (am.getStatusid()){
             case 1:
                 holder.tvstatusid.setText("Requested");

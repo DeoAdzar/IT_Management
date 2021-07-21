@@ -52,7 +52,7 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
     public class HolderClientsAdapterDataAssets extends RecyclerView.ViewHolder {
         TextView tvid, tvcategoryid, tvadminid, tvclientid, tvuserid, tvmanufacturerid,
                 tvmodelid, tvsupplierid, tvwarrantymonths, tvlocationid, tvpurchasedate,
-                tvtag, tvname, tvserial, tvnotes, tvcustomfields, tvqrvalue,tvstatusid;
+                tvtag, tvname, tvserial, tvnotes, tvcustomfields, tvqrvalue,tvstatusid,tvidstatus;
         ImageButton btnEditAssetClient,btnHapusAssetClient;
 
         public HolderClientsAdapterDataAssets(@NonNull View itemView) {
@@ -77,7 +77,7 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
                     i.putExtra("name",tvname.getText().toString());
                     i.putExtra("serial",tvserial.getText().toString());
                     i.putExtra("notes",tvnotes.getText().toString());
-                    i.putExtra("idStatus",tvstatusid.getText().toString());
+                    i.putExtra("idStatus",tvidstatus.getText().toString());
                     ctx.startActivity(i);
                 }
             });
@@ -109,12 +109,14 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
             tvcustomfields =itemView.findViewById(R.id.tv_customfields);
             tvqrvalue=itemView.findViewById(R.id.tv_qrvalue);
             tvstatusid=itemView.findViewById(R.id.tv_statusid);
+            tvidstatus = itemView.findViewById(R.id.tv_id_status_Asset);
         }
 
     }
 
     private void initHolder(@NotNull HolderClientsAdapterDataAssets holder, int position){
         ClientsAssetModel cam = clientsAssetModelList.get(position);
+        holder.tvidstatus.setText(String.valueOf(cam.getStatusid()));
         holder.tvid.setText(String.valueOf(cam.getId()));
         holder.tvadminid.setText(String.valueOf(cam.getAdminid()));
         holder.tvcategoryid.setText(String.valueOf(cam.getCategoryid()));
@@ -161,5 +163,6 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
         holder.tvnotes.setText(cam.getNotes());
         holder.tvcustomfields.setText(cam.getCustomfields());
         holder.tvqrvalue.setText(cam.getQrvalue());
+
     }
 }
