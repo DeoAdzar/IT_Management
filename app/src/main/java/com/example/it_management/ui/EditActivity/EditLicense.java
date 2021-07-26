@@ -65,6 +65,21 @@ public class EditLicense extends AppCompatActivity {
         setClientName();
         setCategoryName();
         setSupplierName();
+        idClient.setText(getIntent().getStringExtra("idClient"));
+        idCategory.setText(getIntent().getStringExtra("idCategory"));
+        idSupplier.setText(getIntent().getStringExtra("idSupp"));
+        tag.setText(getIntent().getStringExtra("tag"));
+        name.setText(getIntent().getStringExtra("nama"));
+        serial.setText(getIntent().getStringExtra("serial"));
+        seat.setText(getIntent().getStringExtra("seat"));
+        notes.setText(getIntent().getStringExtra("note"));
+        int val = Integer.parseInt(getIntent().getStringExtra("idStatus"));
+        status.post(new Runnable() {
+            @Override
+            public void run() {
+                status.setSelection(val);
+            }
+        });
     }
     private void setCategoryName() {
         String id;

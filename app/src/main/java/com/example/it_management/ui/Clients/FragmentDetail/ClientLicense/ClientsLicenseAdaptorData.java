@@ -1,6 +1,7 @@
 package com.example.it_management.ui.Clients.FragmentDetail.ClientLicense;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.it_management.R;
+import com.example.it_management.ui.EditActivity.EditLicense;
 
 import java.util.List;
 
@@ -105,6 +107,25 @@ public class ClientsLicenseAdaptorData extends RecyclerView.Adapter<ClientsLicen
             tvserial = itemView.findViewById(R.id.tv_serial_client_license);
             tvcustomfields = itemView.findViewById(R.id.tv_customfields_client_license);
             tvqrvalues = itemView.findViewById(R.id.tv_qrvalue_client_license);
+            btnEdit = itemView.findViewById(R.id.btn_edit_license_client);
+            btnDelete = itemView.findViewById(R.id.btn_delete_license_client);
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ctx, EditLicense.class);
+                    i.putExtra("idLicense",tvid.getText().toString());
+                    i.putExtra("idClient",tvclientid.getText().toString());
+                    i.putExtra("idCategory",tvcategoryid.getText().toString());
+                    i.putExtra("idSupp",tvsupplierid.getText().toString());
+                    i.putExtra("idStatus",tvstatusid.getText().toString());
+                    i.putExtra("tag",tvtag.getText().toString());
+                    i.putExtra("nama",tvname.getText().toString());
+                    i.putExtra("seat",tvseats.getText().toString());
+                    i.putExtra("serial",tvserial.getText().toString());
+                    i.putExtra("note",tvnote.getText().toString());
+                    ctx.startActivity(i);
+                }
+            });
         }
     }
 }

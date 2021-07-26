@@ -38,16 +38,16 @@ public class LicensesAdapterData extends RecyclerView.Adapter<LicensesAdapterDat
     @Override
     public void onBindViewHolder(@NonNull HolderDataLicense holder, int position) {
         LicencesModel lm = licencesModelList.get(position);
-        holder.tvid.setText(lm.getId());
-        holder.tvidclient.setText(lm.getClientid());
-        holder.tvidcategory.setText(lm.getCategoryid());
-        holder.tvidsupp.setText(lm.getSupplierid());
+        holder.tvid.setText(String.valueOf(lm.getId()));
+        holder.tvidclient.setText(String.valueOf(lm.getClientid()));
+        holder.tvidcategory.setText(String.valueOf(lm.getCategoryid()));
+        holder.tvidsupp.setText(String.valueOf(lm.getSupplierid()));
         holder.tvserial.setText(lm.getSerial());
         holder.tvnotes.setText(lm.getNotes());
         holder.tvtag.setText(lm.getTag());
         holder.tvcategory.setText(lm.getNama_category());
         holder.tvnama.setText(lm.getName());
-        holder.tvidstatus.setText(lm.getStatusid());
+        holder.tvidstatus.setText(String.valueOf(lm.getStatusid()));
         if (lm.getSeats().equals("")){
             holder.tvseats.setText("N/A");
             holder.tvseats.setTextColor(ContextCompat.getColor(ctx,R.color.none));
