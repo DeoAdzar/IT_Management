@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -87,6 +88,7 @@ public class ClientsLicenseAdaptorData extends RecyclerView.Adapter<ClientsLicen
     public class HolderDataClientsLicense extends RecyclerView.ViewHolder{
         TextView tvtag,tvname,tvcategoryname,tvid,tvclientid,tvnote,tvcategoryid,tvstatusid,tvsupplierid,tvseats
                 ,tvserial,tvcustomfields,tvqrvalues,tvstatusname;
+        ImageButton btnEdit,btnDelete;
         public HolderDataClientsLicense(@NonNull View itemView) {
             super(itemView);
             tvstatusname = itemView.findViewById(R.id.tv_statusname_client_license);

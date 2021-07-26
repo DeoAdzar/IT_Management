@@ -2,7 +2,64 @@ package com.example.it_management.ui.Inventory.Licences;
 
 
 public class LicencesModel {
-    private String seats, tag,nama_category,name,nama_client,nama_status;
+    private String seats, tag,nama_category,name,nama_client,nama_status,serial,notes;
+    int statusid,id,clientid,categoryid,supplierid;
+
+    public String getSerial() {
+        return serial;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public int getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(int clientid) {
+        this.clientid = clientid;
+    }
+
+    public int getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(int categoryid) {
+        this.categoryid = categoryid;
+    }
+
+    public int getSupplierid() {
+        return supplierid;
+    }
+
+    public void setSupplierid(int supplierid) {
+        this.supplierid = supplierid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStatusid() {
+        return statusid;
+    }
+
+    public void setStatusid(int statusid) {
+        this.statusid = statusid;
+    }
 
     public String getSeats() {
         return seats;

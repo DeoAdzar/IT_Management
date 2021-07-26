@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     app:cardCornerRadius="9dp"
-
     >
     <View
         android:layout_width="match_parent"
@@ -159,8 +158,59 @@
                     android:background="@drawable/bg_status_deployed"
                     android:textSize="16dp" />
             </TableRow>
+            <TextView
+                android:id="@+id/tv_idstatus_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asset"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_id_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asset"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_idclient_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="id"
+                android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/tv_categoryid_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_supplierid_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_serial_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_note_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_notes_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notes"
+                android:visibility="gone" />
         </TableLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
