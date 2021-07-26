@@ -177,6 +177,18 @@ public interface BaseApiService {
             @Field("start") String start,
             @Field("end") String end
     );
+    @FormUrlEncoded
+    @PUT("Projects/updateProjects")
+    Call<ResponseBody> basUpdateProject(
+            @Field("id") int id,
+            @Field("idClient") int idClient,
+            @Field("tag") String tag,
+            @Field("name") String name,
+            @Field("notes") String notes,
+            @Field("progress") int progress,
+            @Field("start") String start,
+            @Field("end") String end
+    );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END Projects ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ KnowledgeBase ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     @GET("KnowledgeBase/getKbCategories")

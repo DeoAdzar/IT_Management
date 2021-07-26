@@ -1,6 +1,7 @@
 package com.example.it_management.ui.Clients.FragmentDetail.ClientProjects;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.it_management.R;
+import com.example.it_management.ui.EditActivity.EditProject;
 import com.example.it_management.ui.Projects.ProjectsModel;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class ClientsProjectsAdapterData extends RecyclerView.Adapter<ClientsProj
         ClientsProjectsModel cpm = projectsModelList.get(position);
         holder.tvid.setText(String.valueOf(cpm.getId()));
         holder.tvidclient.setText(String.valueOf(cpm.getclientid()));
-        holder.tvprogress.setText(String.valueOf(cpm.getProgress())+"%");
+        holder.tvprogress.setText(String.valueOf(cpm.getProgress()));
         holder.tvnama.setText(cpm.getName());
         holder.tvnotes.setText(cpm.getNotes());
         holder.tvdescription.setText(cpm.getDescription());
@@ -65,7 +67,21 @@ public class ClientsProjectsAdapterData extends RecyclerView.Adapter<ClientsProj
         public HolderDataClientProjects(@NonNull View itemView) {
             super(itemView);
             init(itemView);
-
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ctx, EditProject.class);
+                    i.putExtra("idProject",tvid.getText().toString());
+                    i.putExtra("idClient",tvidclient.getText().toString());
+                    i.putExtra("tag",tvtag.getText().toString());
+                    i.putExtra("progress",tvprogress.getText().toString());
+                    i.putExtra("nama",tvnama.getText().toString());
+                    i.putExtra("duedate",tvduedate.getText().toString());
+                    i.putExtra("notes",tvnotes.getText().toString());
+                    i.putExtra("startdate",tvstartdate.getText().toString());
+                    ctx.startActivity(i);
+                }
+            });
         }
         private void init(@NonNull View itemView) {
         tvprogresbar = itemView.findViewById(R.id.progress_client_project);
