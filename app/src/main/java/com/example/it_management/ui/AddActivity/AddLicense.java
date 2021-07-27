@@ -257,6 +257,7 @@ public class AddLicense extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 progressDialog.dismiss();
                 Toast.makeText(AddLicense.this, "Berhasil input", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override

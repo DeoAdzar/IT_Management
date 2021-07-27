@@ -1,9 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.EditActivity.EditIssues">
+    <ScrollView style="@style/parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout style="@style/parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:weightSum="12">
+
+                <LinearLayout
+                    style="@style/parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/login_shape_bk"
+                    android:orientation="vertical">
+                    <Button
+                        android:id="@+id/btn_back_editIssues"
+                        android:layout_width="40dp"
+                        android:layout_margin="12dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/close"/>
+                    <ImageView
+                        style="@style/parent"
+                        android:background="@drawable/ic_login_bk"
+                        android:contentDescription="login background" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/headerText"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="IT Management"
+                    android:textAllCaps="true"
+                    android:textSize="24dp" />
+
+                <androidx.cardview.widget.CardView
+                    style="@style/loginCard"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:layout_marginBottom="@dimen/loginViewsMargin"
+                    android:background="@color/whiteCardColor"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="@dimen/loginCardRadius">
+
+                    <LinearLayout
+                        style="@style/linearParent"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/loginViewsMargin">
+
+                        <TextView
+                            style="@style/headerTextPrimary"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            android:text="Edit Data Issues" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <EditText
+                                android:id="@+id/et_edit_asset_name"
+                                style="@style/modifiedEditText"
+                                android:hint="Issue Name *"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            app:placeholderText="Type"
+                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <Spinner
+                                android:id="@+id/spin_edit_issues_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dropdown" />
+                            <TextView
+                                android:id="@+id/et_edit_assets_typename"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <!--<EditText
+                                android:id="@+id/et_new_name"
+                                style="@style/modifiedEditText"
+                                android:hint="Clients Name"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_edit_issues_client"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Clients"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_edit_issues_clientid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_edit_issues_assign"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Assigned To"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_edit_issues_assignid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_edit_issues_assets"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Assets"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_edit_issues_assetsid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <AutoCompleteTextView
+                                android:id="@+id/et_edit_issues_project"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Project"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/et_edit_issues_projectid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            app:placeholderText="Status"
+                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <Spinner
+                                android:id="@+id/spin_edit_issues_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dialog" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            app:placeholderText="Priority"
+                            app:placeholderTextAppearance="@style/Widget.Design.TextInputLayout">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <Spinner
+                                android:id="@+id/spin_edit_issues_priority"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dialog" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin">
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <EditText
+                                android:id="@+id/et_edit_issues_due"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="Due Date"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+
+                            >
+                            <!--<EditText
+                                android:id="@+id/et_"
+                                style="@style/modifiedEditText"
+                                android:hint="Notes"
+                                android:inputType="textCapWords"
+                                android:maxLines="2"
+                                android:textSize="16dp" />-->
+                            <EditText
+                                android:id="@+id/et_edit_issues_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Description"
+                                android:textSize="16dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/btn_edit_issues"
+                            style="@style/loginButton"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/loginViewsMargin"
+                            android:text="Create" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

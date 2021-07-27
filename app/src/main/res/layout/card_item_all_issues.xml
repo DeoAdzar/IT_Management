@@ -158,9 +158,61 @@
                     android:textSize="16dp" />
             </TableRow>
         </TableLayout>
-        
-        
+        <TextView
+            android:id="@+id/tv_idclient_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
 
+        <TextView
+            android:id="@+id/tv_idasset_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asset"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_adminid_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="license_tag_prefix"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_projectid_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_milestoneid_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_description_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_timespent_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_dateadded_issues_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:visibility="gone" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

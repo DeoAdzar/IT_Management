@@ -110,7 +110,6 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
                 holder.tvstatus.setBackground(null);
                 holder.tvstatus.setText("none");
         }
-        holder.tvstatus.setText(cim.getStatus());
         holder.tvname.setText(cim.getName());
         holder.tvdescription.setText(cim.getDescription());
         if (cim.getDuedate().equals("")){

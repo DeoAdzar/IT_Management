@@ -356,6 +356,35 @@ public class EditLicense extends AppCompatActivity {
     }
 
     private void updateLicense() {
+        progressDialog.show();
+        Integer idCl,idCa,idSup,st,id;
+        String seatt,tg,LicenseName,srl,note;
+        long stts= status.getSelectedItemId();
+        idCl = Integer.parseInt(idClient.getText().toString());
+        idCa = Integer.parseInt(idCategory.getText().toString());
+        idSup = Integer.parseInt(idSupplier.getText().toString());
+        st = (int) stts;
+        id = Integer.parseInt(getIntent().getStringExtra("idLicense"));
+        tg = tag.getText().toString();
+        LicenseName = name.getText().toString();
+        seatt = seat.getText().toString();
+        srl = serial.getText().toString();
+        note = notes.getText().toString();
+        BaseApiService mApiService = UtilsApi.getApiService();
+        Call<ResponseBody> update = mApiService.basUpdateLicense(id,idCa,idCl,idSup,st,tg,LicenseName,seatt,srl,note);
+        update.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                progressDialog.dismiss();
+                Toast.makeText(EditLicense.this, "Berhasil input", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(EditLicense.this, "Gagal input", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void getData() {
