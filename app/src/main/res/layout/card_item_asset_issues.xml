@@ -186,12 +186,6 @@
             android:text="notes"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_milestoneid_issues_asset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="notes"
-            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_description_issues_asset"
@@ -200,19 +194,6 @@
             android:text="notes"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_timespent_issues_asset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="notes"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/tv_dateadded_issues_asset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="notes"
-            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"

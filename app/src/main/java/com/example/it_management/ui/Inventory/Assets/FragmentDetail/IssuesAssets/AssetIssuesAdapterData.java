@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,10 @@ public class AssetIssuesAdapterData extends RecyclerView.Adapter<AssetIssuesAdap
     public void onBindViewHolder(@NonNull HolderDataAssetIssues holder, int position) {
         AssetIssuesModel cim = assetIssuesModelList.get(position);
         holder.tvid.setText(String.valueOf(cim.getId()));
+        holder.tvclientid.setText(String.valueOf(cim.getClientid()));
+        holder.tvadminid.setText(String.valueOf(cim.getAdminid()));
+        holder.tvassetid.setText(String.valueOf(cim.getAssetid()));
+        holder.tvprojectid.setText(String.valueOf(cim.getProjectid()));
         switch (cim.getIssuetype()){
             case "Task":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.task),null,null,null);
@@ -108,6 +113,7 @@ public class AssetIssuesAdapterData extends RecyclerView.Adapter<AssetIssuesAdap
         }
         holder.tvstatus.setText(cim.getStatus());
         holder.tvname.setText(cim.getName());
+        holder.tvdes.setText(cim.getDescription());
         if (cim.getDuedate().equals("")){
             holder.tvduedate.setTextColor(ContextCompat.getColor(ctx,R.color.none));
             holder.tvduedate.setText(" none ");
@@ -123,15 +129,24 @@ public class AssetIssuesAdapterData extends RecyclerView.Adapter<AssetIssuesAdap
 
 
     public class HolderDataAssetIssues extends RecyclerView.ViewHolder{
-        private TextView tvid,tvissuetype,tvpriority,tvstatus,tvname,tvduedate;
+        private TextView tvid,tvissuetype,tvpriority,tvstatus,tvname,tvduedate
+                ,tvclientid,tvassetid,tvprojectid,tvadminid,tvdes;
+        ImageButton btnEdit,btnDelete;
         public HolderDataAssetIssues(@NonNull View itemView) {
             super(itemView);
             tvid = itemView.findViewById(R.id.tv_id_issues_asset);
+            tvclientid = itemView.findViewById(R.id.tv_idclient_issues_asset);
+            tvassetid =itemView.findViewById(R.id.tv_idasset_issues_asset);
+            tvadminid=itemView.findViewById(R.id.tv_adminid_issues_asset);
+            tvprojectid = itemView.findViewById(R.id.tv_projectid_issues_asset);
+            tvdes = itemView.findViewById(R.id.tv_description_issues_asset);
             tvissuetype = itemView.findViewById(R.id.tv_type_issues_asset);
             tvpriority = itemView.findViewById(R.id.tv_priority_issues_asset);
             tvstatus = itemView.findViewById(R.id.tv_status_issues_asset);
             tvname = itemView.findViewById(R.id.tv_name_issues_asset);
             tvduedate = itemView.findViewById(R.id.tv_duedate_issues_asset);
+            btnEdit = itemView.findViewById(R.id.btn_edit_issues_asset);
+            btnDelete = itemView.findViewById(R.id.btn_delete_issues_asset);
         }
     }
 }

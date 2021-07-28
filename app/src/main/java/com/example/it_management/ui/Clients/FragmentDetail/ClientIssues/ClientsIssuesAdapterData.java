@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -131,6 +132,7 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
     public class HolderDataClientIssues extends RecyclerView.ViewHolder{
         private TextView tvid,tvclientid,tvassetid,tvprojectid,tvadminid,tvmilestoneid,tvissuetype
                 ,tvpriority,tvstatus,tvname,tvdescription,tvduedate,tvtimespent,tvdateadded;
+        ImageButton btnEdit,btnDelete;
         public HolderDataClientIssues(@NonNull View itemView) {
             super(itemView);
             tvid = itemView.findViewById(R.id.tv_id_issues_client);
@@ -147,6 +149,8 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
             tvduedate = itemView.findViewById(R.id.tv_duedate_issues_client);
             tvtimespent = itemView.findViewById(R.id.tv_timespent_client_issues);
             tvdateadded = itemView.findViewById(R.id.tv_dateadded_client_issues);
+            btnEdit = itemView.findViewById(R.id.btn_edit_issues_client);
+            btnDelete = itemView.findViewById(R.id.btn_delete_issues_client);
         }
     }
 }
