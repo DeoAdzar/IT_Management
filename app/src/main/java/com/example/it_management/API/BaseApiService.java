@@ -167,6 +167,11 @@ public interface BaseApiService {
             @Field("name") String name
     );
     @FormUrlEncoded
+    @POST("Projects/getProjectsName")
+    Call<ResponseBody> basProjectsGetName(
+            @Field("id") int id
+    );
+    @FormUrlEncoded
     @POST("Projects/insertProjects")
     Call<ResponseBody> basInputProject(
             @Field("idClient") int idClient,
@@ -246,6 +251,11 @@ public interface BaseApiService {
     Call<ResponseBody> basAssetsGetId(
             @Field("name") String name
     );
+    @FormUrlEncoded
+    @POST("Assets/getAssetsName")
+    Call<ResponseBody> basAssetsGetName(
+            @Field("id") int id
+    );
     @GET("Assets/countAssets")
     Call<ResponseBody> basCountAssets();
     //==========detail file asset=================//
@@ -286,6 +296,11 @@ public interface BaseApiService {
     @POST("Licenses/getCategoryId")
     Call<ResponseBody> basLicenseCategoryGetId(
             @Field("name") String name
+    );
+    @FormUrlEncoded
+    @POST("Licenses/getCategoryName")
+    Call<ResponseBody> basLicenseCategoryGetName(
+            @Field("id") int id
     );
     @FormUrlEncoded
     @POST("Licenses/insertLicense")

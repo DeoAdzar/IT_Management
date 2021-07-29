@@ -76,9 +76,122 @@ public class EditIssues extends AppCompatActivity {
     private void setData() {
         setClientName();
         setAssetsName();
+        setAdminName();
+        setProjectName();
+        /*name.setText();
+        description.setText();
+        dueDate.setText();
+        idClient.setText();
+        idAsset.setText();
+        idProject.setText();
+        idAdmin.setText();
+        typename.setText();*/
+
+
     }
 
+    private void setProjectName() {
+        String id;
+        id = getIntent().getStringExtra("idAdmin");
+        Call<ResponseBody> setClient = mApiService.basProjectsGetName(Integer.parseInt(id));
+        setClient.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject jsonResult = new JSONObject(response.body().string());
+                        if (jsonResult.getString("error").equals("false")) {
+                            String name = jsonResult.getJSONObject("client").getString("name");
+                            admin.setText(name);
+                        } else {
+                            String error_msg = jsonResult.getString("error_msg");
+                            Log.d("Msg",error_msg+" User");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(EditIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void setAdminName() {
+        String id;
+        id = getIntent().getStringExtra("idAdmin");
+        Call<ResponseBody> setClient = mApiService.basAkunGetName(Integer.parseInt(id));
+        setClient.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject jsonResult = new JSONObject(response.body().string());
+                        if (jsonResult.getString("error").equals("false")) {
+                            String name = jsonResult.getJSONObject("client").getString("name");
+                            admin.setText(name);
+                        } else {
+                            String error_msg = jsonResult.getString("error_msg");
+                            Log.d("Msg",error_msg+" User");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(EditIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+
     private void setAssetsName() {
+        String id;
+        id = getIntent().getStringExtra("idAssets");
+        Call<ResponseBody> setClient = mApiService.basAssetsGetName(Integer.parseInt(id));
+        setClient.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject jsonResult = new JSONObject(response.body().string());
+                        if (jsonResult.getString("error").equals("false")) {
+                            String name = jsonResult.getJSONObject("client").getString("name");
+                            asset.setText(name);
+                        } else {
+                            String error_msg = jsonResult.getString("error_msg");
+                            Log.d("Msg",error_msg+" Client");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(EditIssues.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(EditIssues.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void setClientName() {
@@ -455,12 +568,17 @@ public class EditIssues extends AppCompatActivity {
     }
     private void init() {
         initType();
+        String valStatus,valPrio,valType;
+        valStatus = getIntent().getStringExtra("status");
+        valPrio = getIntent().getStringExtra("prio");
+        valType = getIntent().getStringExtra("type");
         progressDialog = new SpotsDialog(this, R.style.Custom);
         name = findViewById(R.id.et_edit_asset_name);
         type = findViewById(R.id.spin_edit_issues_type);
         typename = findViewById(R.id.et_edit_assets_typename);
         adapter = new SpinnerTypeAdapter(this,typeList);
         type.setAdapter(adapter);
+
         type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -489,11 +607,19 @@ public class EditIssues extends AppCompatActivity {
         status = findViewById(R.id.spin_edit_issues_status);
         priority = findViewById(R.id.spin_edit_issues_priority);
         ArrayAdapter<CharSequence> StatusAdapter = ArrayAdapter.createFromResource(this,R.array.ListStatusIssues,R.layout.custom_spinner);
-        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
+        StatusAdapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         status.setAdapter(StatusAdapter);
+        if (valStatus != null){
+            int spinnerPosition = StatusAdapter.getPosition(valStatus);
+            status.setSelection(spinnerPosition);
+        }
         ArrayAdapter<CharSequence> PriorityAdapter = ArrayAdapter.createFromResource(this,R.array.ListPriority,R.layout.custom_spinner);
-        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
+        PriorityAdapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         priority.setAdapter(PriorityAdapter);
+        if (valPrio != null){
+            int spinnerPosition = PriorityAdapter.getPosition(valPrio);
+            priority.setSelection(spinnerPosition);
+        }
         DatePickerDialog.OnDateSetListener date1 = new DatePickerDialog.OnDateSetListener() {
 
             @Override

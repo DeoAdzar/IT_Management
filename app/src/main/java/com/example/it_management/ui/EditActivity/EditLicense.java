@@ -84,7 +84,7 @@ public class EditLicense extends AppCompatActivity {
     private void setCategoryName() {
         String id;
         id = getIntent().getStringExtra("idCategory");
-        Call<ResponseBody> setCategory = mApiService.basCategoryGetName(Integer.parseInt(id));
+        Call<ResponseBody> setCategory = mApiService.basLicenseCategoryGetName(Integer.parseInt(id));
         setCategory.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -92,7 +92,7 @@ public class EditLicense extends AppCompatActivity {
                     try {
                         JSONObject jsonResult = new JSONObject(response.body().string());
                         if (jsonResult.getString("error").equals("false")) {
-                            String name = jsonResult.getJSONObject("client").getString("name");
+                            String name = jsonResult.getJSONObject("license").getString("name");
                             category.setText(name);
                         } else {
                             String error_msg = jsonResult.getString("error_msg");
