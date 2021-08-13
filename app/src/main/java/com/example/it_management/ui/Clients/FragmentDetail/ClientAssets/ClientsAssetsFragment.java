@@ -98,7 +98,6 @@ public class ClientsAssetsFragment extends Fragment {
                     adClientAsset = new ClientsAssetAdapterData(getContext(), listClientAsset);
                     rvClientAsset.setAdapter(adClientAsset);
                     adClientAsset.notifyDataSetChanged();
-
                     rvClientAsset.setVisibility(View.VISIBLE);
                     tvnodata.setVisibility(View.GONE);
                 }

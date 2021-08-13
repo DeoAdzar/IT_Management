@@ -1,6 +1,7 @@
 package com.example.it_management.ui.Clients.FragmentDetail.ClientAssets;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +11,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.it_management.API.BaseApiService;
+import com.example.it_management.API.UtilsApi;
 import com.example.it_management.R;
+import com.example.it_management.ui.Clients.ClientsFragment;
 import com.example.it_management.ui.EditActivity.EditAsset;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAdapterData.HolderClientsAdapterDataAssets> {
@@ -84,14 +94,49 @@ public class ClientsAssetAdapterData extends RecyclerView.Adapter<ClientsAssetAd
             btnHapusAssetClient.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ctx, "Hapus Clicked", Toast.LENGTH_SHORT).show();
+                    int id = Integer.parseInt(tvid.getText().toString());
+                    konfirmasi(tvname.getText().toString(),id);
+
+                }
+            });
+        }
+        private void konfirmasi(String nama,int id){
+            final AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
+            alert.setTitle("Delete");
+            alert.setIcon(R.drawable.ic_delete);
+            alert.setMessage("Apakah anda yakin ingin menghapus data "+nama+" ?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            deleteAssets(nama,id);
+                            dialog.dismiss();
+
+                        }
+                    })
+                    .setNegativeButton("No", null);
+            alert.show();
+        }
+        private void deleteAssets(String nama,int id){
+            BaseApiService mApiService = UtilsApi.getApiService();
+            Call<ResponseBody> delete = mApiService.basDeleteAssets(id);
+            delete.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    Toast.makeText(ctx, nama+" has been removed, please refresh page", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(ctx, "Gagal menghubungi server | response : "+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
         private void init(@NonNull View itemView){
             btnEditAssetClient = itemView.findViewById(R.id.btn_edit_asset_client);
             btnHapusAssetClient = itemView.findViewById(R.id.btn_delete_asset_client);
-            tvid = itemView.findViewById(R.id.tv_id_Client_Asset);
+            tvid = itemView.findViewById(R.id.tv_id_assets_client);
             tvcategoryid = itemView.findViewById(R.id.tv_categoryid);
             tvadminid = itemView.findViewById(R.id.tv_adminid);
             tvclientid = itemView.findViewById(R.id.tv_id_Client_Asset);

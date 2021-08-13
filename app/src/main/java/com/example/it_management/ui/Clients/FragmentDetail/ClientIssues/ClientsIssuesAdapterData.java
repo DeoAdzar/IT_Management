@@ -1,6 +1,7 @@
 package com.example.it_management.ui.Clients.FragmentDetail.ClientIssues;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.it_management.R;
+import com.example.it_management.ui.EditActivity.EditIssues;
 
 import java.util.List;
 
@@ -45,26 +47,32 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
             case "Task":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.task),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("0");
                 break;
             case "Maintenance":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.maintenance),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("1");
                 break;
             case "Bug":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.bug),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("2");
                 break;
             case "Improvement":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.improvement),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("3");
                 break;
             case "New Feature":
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(ctx,R.drawable.newfeature),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("4");
                 break;
             case "Story":
                 holder.tvissuetype.setCompoundDrawablesRelative(ContextCompat.getDrawable(ctx,R.drawable.story),null,null,null);
                 holder.tvissuetype.setText(cim.getIssuetype());
+                holder.tvvaltype.setText("5");
                 break;
             default:
                 holder.tvissuetype.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
@@ -131,7 +139,7 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
 
     public class HolderDataClientIssues extends RecyclerView.ViewHolder{
         private TextView tvid,tvclientid,tvassetid,tvprojectid,tvadminid,tvmilestoneid,tvissuetype
-                ,tvpriority,tvstatus,tvname,tvdescription,tvduedate,tvtimespent,tvdateadded;
+                ,tvpriority,tvstatus,tvname,tvdescription,tvduedate,tvtimespent,tvdateadded,tvvaltype;
         ImageButton btnEdit,btnDelete;
         public HolderDataClientIssues(@NonNull View itemView) {
             super(itemView);
@@ -149,8 +157,30 @@ public class ClientsIssuesAdapterData extends RecyclerView.Adapter<ClientsIssues
             tvduedate = itemView.findViewById(R.id.tv_duedate_issues_client);
             tvtimespent = itemView.findViewById(R.id.tv_timespent_client_issues);
             tvdateadded = itemView.findViewById(R.id.tv_dateadded_client_issues);
+            tvvaltype = itemView.findViewById(R.id.tv_valType_client_issues);
             btnEdit = itemView.findViewById(R.id.btn_edit_issues_client);
             btnDelete = itemView.findViewById(R.id.btn_delete_issues_client);
+
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(ctx, EditIssues.class);
+                    i.putExtra("idIssues",tvid.getText().toString());
+                    i.putExtra("idAdmin",tvadminid.getText().toString());
+                    i.putExtra("idProject",tvprojectid.getText().toString());
+                    i.putExtra("idAssets",tvassetid.getText().toString());
+                    i.putExtra("idClient",tvclientid.getText().toString());
+                    i.putExtra("type",tvissuetype.getText().toString());
+                    i.putExtra("valtype", tvvaltype.getText().toString());
+                    i.putExtra("prio",tvpriority.getText().toString());
+                    i.putExtra("status",tvstatus.getText().toString());
+                    i.putExtra("name",tvname.getText().toString());
+                    i.putExtra("des",tvdescription.getText().toString());
+                    i.putExtra("duedate",tvduedate.getText().toString());
+
+                    ctx.startActivity(i);
+                }
+            });
         }
     }
 }

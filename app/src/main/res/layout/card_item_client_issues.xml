@@ -160,6 +160,12 @@
         </TableLayout>
 
         <TextView
+            android:id="@+id/tv_valType_client_issues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
+        <TextView
             android:id="@+id/tv_idclient_client_issues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

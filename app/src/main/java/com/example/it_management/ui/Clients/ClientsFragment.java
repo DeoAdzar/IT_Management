@@ -55,7 +55,7 @@ public class ClientsFragment extends Fragment {
         cf=this;
         hilang();
         tampilDataClient();
-            refresh();
+        refresh();
         addClients();
         return v;
     }

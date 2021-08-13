@@ -78,21 +78,21 @@ public class EditIssues extends AppCompatActivity {
         setAssetsName();
         setAdminName();
         setProjectName();
-        /*name.setText();
-        description.setText();
-        dueDate.setText();
-        idClient.setText();
-        idAsset.setText();
-        idProject.setText();
-        idAdmin.setText();
-        typename.setText();*/
+        name.setText(getIntent().getStringExtra("name"));
+        description.setText(getIntent().getStringExtra("des"));
+        dueDate.setText(getIntent().getStringExtra("duedate"));
+        idClient.setText(getIntent().getStringExtra("idClient"));
+        idAsset.setText(getIntent().getStringExtra("idAssets"));
+        idProject.setText(getIntent().getStringExtra("idProject"));
+        idAdmin.setText(getIntent().getStringExtra("idAdmin"));
+        typename.setText(getIntent().getStringExtra("type"));
 
 
     }
 
     private void setProjectName() {
         String id;
-        id = getIntent().getStringExtra("idAdmin");
+        id = getIntent().getStringExtra("idProject");
         Call<ResponseBody> setClient = mApiService.basProjectsGetName(Integer.parseInt(id));
         setClient.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -437,7 +437,34 @@ public class EditIssues extends AppCompatActivity {
     }
 
     private void updateIssues() {
+        progressDialog.show();
+        int id,idCl,idAs,idPro,idAdm;
+        String nama,des,tipe,prio,stts,date;
+        id = Integer.parseInt(getIntent().getStringExtra("idIssues"));
+        idCl = Integer.parseInt(idClient.getText().toString());
+        idAs = Integer.parseInt(idAsset.getText().toString());
+        idPro = Integer.parseInt(idProject.getText().toString());
+        idAdm = Integer.parseInt(idAdmin.getText().toString());
+        nama = name.getText().toString();
+        des = description.getText().toString();
+        tipe = typename.getText().toString();
+        prio = priority.getSelectedItem().toString();
+        stts = status.getSelectedItem().toString();
+        date = dueDate.getText().toString();
+        Call<ResponseBody> input = mApiService.basUpdateIssues(id,idCl,idAdm,idAs,idPro,tipe,prio,stts,date,des,nama);
+        input.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                progressDialog.dismiss();
+                Toast.makeText(EditIssues.this, "Berhasil Input", Toast.LENGTH_SHORT).show();
+                finish();
+            }
 
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
     }
 
 
@@ -571,14 +598,40 @@ public class EditIssues extends AppCompatActivity {
         String valStatus,valPrio,valType;
         valStatus = getIntent().getStringExtra("status");
         valPrio = getIntent().getStringExtra("prio");
-        valType = getIntent().getStringExtra("type");
+        valType = getIntent().getStringExtra("valtype");
         progressDialog = new SpotsDialog(this, R.style.Custom);
         name = findViewById(R.id.et_edit_asset_name);
         type = findViewById(R.id.spin_edit_issues_type);
         typename = findViewById(R.id.et_edit_assets_typename);
         adapter = new SpinnerTypeAdapter(this,typeList);
         type.setAdapter(adapter);
-
+       /*if (valType!=null){
+           int image = 0;
+           switch (valType){
+               case "Task":
+                   image = R.drawable.task;
+                   break;
+               case "Maintenance":
+                   image = R.drawable.maintenance;
+                   break;
+               case "Bug":
+                   image = R.drawable.bug;
+                   break;
+               case "Improvement":
+                   image = R.drawable.improvement;
+                   break;
+               case "New Feature":
+                   image = R.drawable.newfeature;
+                   break;
+               case "Story":
+                   image = R.drawable.story;
+                   break;
+           }
+           SpinnerTypeItem set = new SpinnerTypeItem(valType,image);
+           int TypeSelect = adapter.getPosition(set);
+           type.setSelection(TypeSelect);
+       }*/
+        type.setSelection(Integer.parseInt(valType));
         type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -611,14 +664,24 @@ public class EditIssues extends AppCompatActivity {
         status.setAdapter(StatusAdapter);
         if (valStatus != null){
             int spinnerPosition = StatusAdapter.getPosition(valStatus);
-            status.setSelection(spinnerPosition);
+            status.post(new Runnable() {
+                @Override
+                public void run() {
+                    status.setSelection(spinnerPosition);
+                }
+            });
         }
         ArrayAdapter<CharSequence> PriorityAdapter = ArrayAdapter.createFromResource(this,R.array.ListPriority,R.layout.custom_spinner);
         PriorityAdapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         priority.setAdapter(PriorityAdapter);
         if (valPrio != null){
             int spinnerPosition = PriorityAdapter.getPosition(valPrio);
-            priority.setSelection(spinnerPosition);
+            priority.post(new Runnable() {
+                @Override
+                public void run() {
+                    priority.setSelection(spinnerPosition);
+                }
+            });
         }
         DatePickerDialog.OnDateSetListener date1 = new DatePickerDialog.OnDateSetListener() {
 

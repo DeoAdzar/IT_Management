@@ -138,7 +138,12 @@
             android:layout_height="wrap_content"
             android:text="id"
             android:visibility="gone" />
-
+        <TextView
+            android:id="@+id/tv_id_assets_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:visibility="gone" />
         <TextView
             android:id="@+id/tv_id_Client_Asset"
             android:layout_width="wrap_content"

@@ -46,6 +46,7 @@ import java.util.List;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -207,6 +208,9 @@ public interface BaseApiService {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Assets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     @GET("Assets/getAssets")
     Call<AssetsResponseModel> basGetAssets();
+    @FormUrlEncoded
+    @POST("Assets/deleteAssets")
+    Call<ResponseBody> basDeleteAssets(@Field("id")int id);
     @FormUrlEncoded
     @POST("Assets/insertAssets")
     Call<ResponseBody> basInputAssets(
@@ -391,6 +395,21 @@ public interface BaseApiService {
     @FormUrlEncoded
     @POST("Issues/insertIssues")
     Call<ResponseBody> basInputIssues(
+            @Field("idClient") int idClient,
+            @Field("idAdmin") int idAdmin,
+            @Field("idAsset") int idAsset,
+            @Field("idProject") int idProject,
+            @Field("type") String type,
+            @Field("priority") String priority,
+            @Field("status") String status,
+            @Field("due") String due,
+            @Field("descript") String descript,
+            @Field("name") String name
+    );
+    @FormUrlEncoded
+    @PUT("Issues/updateIssues")
+    Call<ResponseBody> basUpdateIssues(
+            @Field("id") int id,
             @Field("idClient") int idClient,
             @Field("idAdmin") int idAdmin,
             @Field("idAsset") int idAsset,
