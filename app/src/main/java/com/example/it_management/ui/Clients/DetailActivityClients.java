@@ -149,10 +149,10 @@ public class DetailActivityClients extends AppCompatActivity {
             mFragmentTitleList.add(title);
         }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentTitleList.get(position);
+            }
     }
 //    private void tab(){
 //        tabLayout.addTab(tabLayout.newTab().setText("Assets"));
